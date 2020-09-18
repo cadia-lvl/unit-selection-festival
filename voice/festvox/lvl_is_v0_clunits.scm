@@ -175,9 +175,9 @@ plus previous phone (or something else)."
 		    (string-equal "pau" (item.feat i "n.name")))))
       "ignore")
      ;; Comment out this if you want a more interesting unit name
-     ((null nil)
-      name)
-
+;     ((null nil)
+;      name)
+;
      ;; Comment out the above if you want to use these rules
      ((string-equal "+" (item.feat i "ph_vc"))
       (string-append
