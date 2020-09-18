@@ -34,44 +34,81 @@
 ;;; Phonset for lvl_is
 ;;;
 
-;;;  Feeel free to add new feature values, or new features to this
-;;;  list to make it more appropriate to your language
-
-;; This is where it'll fall over if you haven't defined a 
-;; a phoneset yet, if you have, delete this, if you haven't
-;; define one then delete this error message
-(error "You have not yet defined a phoneset for is (and others things ?)\n            Define it in festvox/lvl_is_v0_phoneset.scm\n")
-
 (defPhoneSet
   lvl_is
-  ;;;  Phone Features
-  (;; vowel or consonant
-   (clst + - 0)
-   (vc + - 0)
-   ;; vowel length: short long dipthong schwa
-   (vlng s l d a 0)
-   ;; vowel height: high mid low
-   (vheight 1 2 3 0 -)
-   ;; vowel frontness: front mid back
-   (vfront 1 2 3 0 -)
-   ;; lip rounding
-   (vrnd + - 0)
-   ;; consonant type: stop fricative affricative nasal liquid approximant
-   (ctype s f a n l r 0)
-   ;; place of articulation: labial alveolar palatal
-   ;; labio-dental dental velar glottal
-   (cplace l a p b d v g 0)
-   ;; consonant voicing
-   (cvox + - 0)
-   (asp  + - 0)
-   (nuk + - 0)
+  (
+   (vc consonant vowel diph silence 0)
+   (cplace bilabial dental linguolabial palatal velar glottal 0)
+   (ctype plosive fricative nasal lateral trill 0)
+   (cvox voiced voiceless 0)
+   (vfrontness front central back 0)
+   (vcloseness close nearclose closemid mid openmid nearopen open 0)
+   (vroundness unrounded rounded 0)
+   (dfrontness2 front central back 0)
+   (dcloseness2 close nearclose closemid mid openmid nearopen open 0)
+   (droundness2 unrounded rounded 0)
+   (vlength long short 0)
    )
   (
-   (    pau   -   -   0   0   0   0   0   0   -   -   -   ) 
-
-   ;; insert the phones here, see examples in 
-   ;; festival/lib/*_phones.scm
-
+   (p   consonant bilabial  plosive       voiceless 0 0 0 0 0 0 0)
+   (ph  consonant bilabial  plosive       voiceless 0 0 0 0 0 0 0)
+   (m   consonant bilabial  nasal         voiceless 0 0 0 0 0 0 0)
+   (m0  consonant bilabial  nasal         voiced 0 0 0 0 0 0 0)
+   (f   consonant dental    fricative     voiceless 0 0 0 0 0 0 0)
+   (v   consonant dental    fricative     voiceless 0 0 0 0 0 0 0)
+   (t   consonant linguolabial plosive       voiceless 0 0 0 0 0 0 0)
+   (th  consonant linguolabial plosive       voiceless 0 0 0 0 0 0 0)
+   (6   consonant linguolabial fricative     voiceless 0 0 0 0 0 0 0)
+   (O   consonant linguolabial fricative     voiceless 0 0 0 0 0 0 0)
+   (n   consonant linguolabial nasal         voiceless 0 0 0 0 0 0 0)
+   (n0  consonant linguolabial nasal         voiced 0 0 0 0 0 0 0)
+   (l   consonant linguolabial lateral       voiceless 0 0 0 0 0 0 0)
+   (l0  consonant linguolabial lateral       voiced 0 0 0 0 0 0 0)
+   (r   consonant linguolabial trill         voiceless 0 0 0 0 0 0 0)
+   (r0  consonant linguolabial trill         voiced 0 0 0 0 0 0 0)
+   (s   consonant linguolabial fricative     voiceless 0 0 0 0 0 0 0)
+   (c   consonant palatal   plosive       voiceless 0 0 0 0 0 0 0)
+   (ch  consonant palatal   plosive       voiceless 0 0 0 0 0 0 0)
+   (j   consonant palatal   fricative     voiceless 0 0 0 0 0 0 0)
+   (cj  consonant palatal   fricative     voiceless 0 0 0 0 0 0 0)
+   (jn  consonant palatal   nasal         voiceless 0 0 0 0 0 0 0)
+   (jn0 consonant palatal   nasal         voiced 0 0 0 0 0 0 0)
+   (k   consonant velar     plosive       voiceless 0 0 0 0 0 0 0)
+   (kh  consonant velar     plosive       voiceless 0 0 0 0 0 0 0)
+   (x   consonant velar     fricative     voiceless 0 0 0 0 0 0 0)
+   (yo  consonant velar     fricative     voiceless 0 0 0 0 0 0 0)
+   (nj  consonant velar     nasal         voiceless 0 0 0 0 0 0 0)
+   (nj0 consonant velar     nasal         voiced 0 0 0 0 0 0 0)
+   (h   consonant glottal   fricative     voiceless 0 0 0 0 0 0 0)
+   (i   vowel 0 0 0 front     close    unrounded 0         0    0       short)
+   (i:  vowel 0 0 0 front     close    unrounded 0         0    0       long)
+   (I   vowel 0 0 0 front     nearclose unrounded 0         0    0       short)
+   (I:  vowel 0 0 0 front     nearclose unrounded 0         0    0       long)
+   (Y   vowel 0 0 0 front     nearclose rounded 0         0    0       long)
+   (Y:  vowel 0 0 0 front     nearclose rounded 0         0    0       long)
+   (Yi  vowel 0 0 0 front     nearclose rounded 0         0    0       short)
+   (ae  vowel 0 0 0 front     openmid  rounded 0         0    0       short)
+   (ae: vowel 0 0 0 front     openmid  rounded 0         0    0       long)
+   (3   vowel 0 0 0 central   openmid  unrounded 0         0    0       short)
+   (3:  vowel 0 0 0 central   openmid  unrounded 0         0    0       long)
+   (u   vowel 0 0 0 back      close    rounded 0         0    0       short)
+   (u:  vowel 0 0 0 back      close    rounded 0         0    0       long)
+   (C   vowel 0 0 0 back      openmid  rounded 0         0    0       short)
+   (C:  vowel 0 0 0 back      openmid  rounded 0         0    0       long)
+   (a   vowel 0 0 0 back      open     unrounded 0         0    0       short)
+   (a:  vowel 0 0 0 back      open     unrounded 0         0    0       long)
+   (Ci  diph  0 0 0 back      openmid  rounded front     close unrounded long)
+   (ou  diph  0 0 0 back      openmid  rounded back      close rounded short)
+   (ou: diph  0 0 0 back      openmid  rounded back      close rounded long)
+   (ai  diph  0 0 0 back      open     unrounded front     close unrounded short)
+   (ai: diph  0 0 0 back      open     unrounded front     close unrounded long)
+   (au  diph  0 0 0 back      open     unrounded back      close rounded short)
+   (au: diph  0 0 0 back      open     unrounded back      close rounded long)
+   (ay  diph  0 0 0 back      open     unrounded front     nearclose rounded short)
+   (ay: diph  0 0 0 back      open     unrounded front     nearclose rounded long)
+   (ei  diph  0 0 0 central   openmid  unrounded front     close unrounded short)
+   (ei: diph  0 0 0 central   openmid  unrounded front     close unrounded long)
+   (pau silence 0 0 0 0 0 0 0 0 0 0)
   )
 )
 
