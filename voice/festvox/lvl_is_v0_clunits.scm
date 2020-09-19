@@ -86,7 +86,7 @@
 (defvar lvl_is_v0::clunits_added_extra_lex_items nil)
 
 ;;; You may wish to change this (only used in building the voice)
-(set! lvl_is_v0::closest_voice 'voice_kal_diphone_is)
+;(set! lvl_is_v0::closest_voice 'voice_kal_diphone_is)
 
 (set! is_phone_maps
       '(

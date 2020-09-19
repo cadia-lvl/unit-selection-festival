@@ -106,7 +106,7 @@ Build cluster synthesizer for the given recorded data and domain."
 (define (build_clunits_init file)
   "(build_clunits_init file)
 Get setup ready for (do_all) (or (do_init))."
-  (eval (list lvl_is_v0::closest_voice))
+  ;(eval (list lvl_is_v0::closest_voice))
   (lvl_is_v0::select_phoneset)
   (lvl_is_v0::select_tokenizer)
   (lvl_is_v0::select_tagger)
