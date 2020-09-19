@@ -1,3 +1,6 @@
+# Make some dirs we need
+$FESTVOXDIR/src/general/make_dirs
+
 # Power normalize and fromat wavs (16kHz, 16bit)
 bin/get_wavs $1/audio/*/*.wav
 
