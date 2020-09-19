@@ -36,6 +36,14 @@ RUN curl -L http://festvox.org/packed/festival/2.5/festival-2.5.0-release.tar.gz
     tar xz --no-same-owner --no-same-permissions && \
     curl -L http://festvox.org/packed/festival/2.5/speech_tools-2.5.0-release.tar.gz | \
     tar xz --no-same-owner --no-same-permissions && \
+    curl -L http://festvox.org/packed/festival/2.5/festlex_CMU.tar.gz | \
+    tar xz --no-same-owner --no-same-permissions && \
+    curl -L http://festvox.org/packed/festival/2.5/festlex_OALD.tar.gz | \
+    tar xz --no-same-owner --no-same-permissions && \
+    curl -L http://festvox.org/packed/festival/2.5/festlex_POSLEX.tar.gz | \
+    tar xz --no-same-owner --no-same-permissions && \
+    curl -L http://festvox.org/packed/festival/2.5/voices/festvox_kallpc16k.tar.gz | \
+    tar xz --no-same-owner --no-same-permissions && \
     curl -L http://festvox.org/packed/festvox/2.8/festvox-2.8.0-release.tar.gz | \
     tar xz --no-same-owner --no-same-permissions
 
