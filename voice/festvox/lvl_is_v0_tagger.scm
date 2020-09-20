@@ -37,6 +37,12 @@
 ;;; Load any necessary files here
 
 
+;;; Load voice/language specific gpos list if it exists
+(if (probe_file (path-append lvl_is_v0::dir "festvox/lvl_is_v0_gpos.scm"))
+    (begin 
+      (load (path-append lvl_is_v0::dir "festvox/lvl_is_v0_gpos.scm"))
+      (set! guess_pos lvl_is_v0_guess_pos)))      
+
 (set! lvl_is_guess_pos 
 '((fn
     ;; function words 
@@ -51,7 +57,9 @@
   "(lvl_is_v0::select_tagger)
 Set up the POS tagger for is."
   (set! pos_lex_name nil)
-  (set! guess_pos lvl_is_guess_pos) 
+  (if (boundp 'lvl_is_v0_guess_pos)
+      (set! guess_pos lvl_is_v0_guess_pos)   ;; voice specific gpos
+      (set! guess_pos english_guess_pos))      ;; default English gpos
 )
 
 (define (lvl_is_v0::reset_tagger)

@@ -1,8 +1,9 @@
 #!/bin/sh
-#####################################################-*-mode:shell-script-*-
+###########################################################################
 ##                                                                       ##
 ##                   Carnegie Mellon University and                      ##
-##                        Copyright (c) 2006                             ##
+##                   Alan W Black and Kevin A. Lenzo                     ##
+##                      Copyright (c) 1998-2000                          ##
 ##                        All Rights Reserved.                           ##
 ##                                                                       ##
 ##  Permission is hereby granted, free of charge, to use and distribute  ##
@@ -30,42 +31,32 @@
 ##  THIS SOFTWARE.                                                       ##
 ##                                                                       ##
 ###########################################################################
-###                                                                      ##
-###  Reduce the give txt.done.data file to the list of things given as   ##
-###  arguments
-###                                                                      ##
-###########################################################################
 
-LANG=C; export LANG
+. ./etc/voice.defs
 
-if [ $# = 0 ]
-then
-   echo "reduce_prompts etc/txt.done.data-all wav/*.wav >etc/txt.done.data"
-   exit 1
-fi
+# Initial labeling
 
-if [ ! "$ESTDIR" ]
-then
-   echo "environment variable ESTDIR is unset"
-   echo "set it to your local speech tools directory e.g."
-   echo '   bash$ export ESTDIR=/home/awb/projects/speech_tools/'
-   echo or
-   echo '   csh% setenv ESTDIR /home/awb/projects/speech_tools/'
-   exit 1
-fi
+./bin/do_build build_prompts
+./bin/do_build label
+./bin/do_build build_utts
 
-PROMPTLIST=$1
-shift
+./bin/do_build do_pm
+./bin/do_build do_mcep
+./bin/do_build build_clunits
+./bin/do_build do_dur
 
-for i in $*
-do
-   basename $i
-done |
-sed 's/\..*//' |
-awk '{print "(",$1}' >tmp.xxx.data
-$FESTVOXDIR/src/promptselect/dataset_subset $PROMPTLIST tmp.xxx.data >tmp.xxx.data2
-## As tmp.xxx.data might not be in the same order as $PROMPTLIST
-## we subset again to get the given promptlist utterance order
-$FESTVOXDIR/src/promptselect/dataset_subset tmp.xxx.data2 $PROMPTLIST 
+echo "A whole joy was reaping but they've gone south, you should fetch azure mike." >whole.txt
+./bin/synthfile whole.txt whole_clunits.wav
 
-rm -f tmp.xxx.data tmp.xxx.data2
+# Build a flite voice from this build
+rm -rf flite
+$FLITEDIR/tools/setup_flite
+./bin/build_flite
+cd flite
+make
+
+./flite_${FV_VOICENAME} "A whole joy was reaping, but they've gone south, you should fetch azure mike." whole_${FV_VOICENAME}.wav
+
+ls -altr flite_${FV_VOICENAME}
+
+
