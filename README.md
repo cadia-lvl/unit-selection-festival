@@ -1,4 +1,4 @@
-# Unit selection revipe for Icelandic 
+# Unit selection recipe for Icelandic 
 
 This is a default unit selection recipe for The Festival Speech Synthesis System.
 The voice inside `voice/` was built using `$FESTVOX/src/unitsel/setup_clunits` and then adapted to work for Icelandic. 
