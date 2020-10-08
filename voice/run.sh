@@ -2,19 +2,16 @@
 $FESTVOXDIR/src/general/make_dirs
 
 # Power normalize and fromat wavs (16kHz, 16bit)
-bin/get_wavs $1/audio/*/*.wav
+bin/get_wavs $1/audio/*.wav
 
 # Set up the prompts that we will train on.
 # ---
 
 # Create transcriptions for everything
-python3 normalize.py $1/info.json txt.complete.data --lobe --scm
+python3 normalize.py $1/index.tsv txt.complete.data --scm
 
-# Add string in front of promt names
-# (Festival doed not handle names that start with a number)
-sed -i 's/( [^\.]*\./( is/' txt.complete.data
-# Do the same for the audio
-rename 's/wav\/[^\.]*\./wav\/is/' wav/*.wav
+# Add random noise to audio (see script for more info)
+bin/add_noise txt.complete.data
 
 # Filter out prompts with numbers or unsupported litters (c, w, q and z)
 grep -v '"[^"]*[0-9cwqz]' txt.complete.data > txt.nonum.data
@@ -22,13 +19,13 @@ grep -v '"[^"]*[0-9cwqz]' txt.complete.data > txt.nonum.data
 # For large databases this can take some time to run as there is a squared aspect 
 # to this based on the number of instances of each unit type.
 # So lets start with only 1000 tokens, this number can be increased for better sound
-head -n 1000 txt.nonum.data > etc/txt.done.data
+head -n 100 txt.nonum.data > etc/txt.done.data
 
 # Create a lexicon
 # ---
 
 #Create list of all words in prompts
-python3 normalize.py $1/info.json "-" --lobe | grep -o "[^ ]*" | sort | uniq > vocabulary.txt
+python3 normalize.py $1/index.tsv "-" | grep -o "[^ ]*" | sort | uniq > vocabulary.txt
 
 # Add additional vocabulary
 # This is highly recomended but needs additional resources you can find online

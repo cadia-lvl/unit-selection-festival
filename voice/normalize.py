@@ -41,8 +41,11 @@ def main():
         description="Process text for text to speech. Example: normalise.py info.json txt.done.data --lobe --scm")
     parser.add_argument("fname_in", help="Input file (use - for stdin)")
     parser.add_argument("fname_out", help="Output file (use - for stdout)")
-    parser.add_argument("--lobe", "-l", action='store_true', help="Set if input file is on LOBE format")
-    parser.add_argument("--scm", "-s", action='store_true', help="Set to output in scm format")
+    parser.add_argument("--lobe", "-l", action="store_true", help="Set if input file is on LOBE format")
+    parser.add_argument("--scm", "-s", action="store_true", help="Set to output in scm format")
+    parser.add_argument("--norm", "-n", action="store_true", help="Normalize input text")
+    parser.add_argument("--col-fname", type=int, default=0)
+    parser.add_argument("--col-text", type=int, default=1)
     args = parser.parse_args()
 
     if args.fname_in == "-":
@@ -61,22 +64,23 @@ def main():
     else:
         fout = open(args.fname_out, "w")
 
-    #extra = open("addendum.txt", "w")
     scm_format_str = '( {} "{}" )\n'
     for i, data in enumerate(lines):
         if args.lobe:
             fname, extension = data["recording_info"]["recording_fname"].rsplit(".", 1)
             text = data["text_info"]["text"]
-        else:
-            fname = "line-{}".format(i)
+        elif args.fname_in == "-":
             text = data.strip()
+        else:
+            parts = data.split("\t")
+            fname = parts[0]
+            text = parts[1].strip()
         normalized = normalize(text)
 
         if args.scm:
             fout.write(scm_format_str.format(fname, normalized))
         else:
             fout.write("{}\n".format(normalized))
-        #extra.write("\n".join(text.split(" ")) + "\n")
 
 if __name__ == "__main__":
     main()
