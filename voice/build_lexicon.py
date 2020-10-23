@@ -2,9 +2,9 @@
 
 """Creates a festival lexicon from tsv lexicon with mapping
 
-Reads a tab seperated lexicon and maps each phoneme to an
+Reads a tab separated lexicon and maps each phoneme to an
 ascii readable phoneme. Outputs a lexicon ready to be
-used in fetical.
+used in festival.
 
 """
 
