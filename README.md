@@ -44,7 +44,7 @@ If you wish you can train your voice in a Docker container.
 To do this simply build the container using the included Dockerfile and run it:
 
 ```Bash
-docker build . --tag lvl-us-is .
+docker build . --tag lvl-us-is
 docker run -it --rm -v ${PWD}/ext/:/usr/local/src/ext -v ${PWD}/voice/:/usr/local/src/voice lvl-us-is:latest bash -c "cd voice/; ./run.sh ../ext/"
 ```
 
