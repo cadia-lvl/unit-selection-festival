@@ -68,6 +68,8 @@ RUN pip install --upgrade pip \
     && pip install git+https://github.com/sequitur-g2p/sequitur-g2p@master
 
 COPY ext/*.mdl /opt/ext/ipd_clean_slt2018.mdl
+# TODO: Instead of copying all of the voice directory, figure out whats
+# necessary to run the voice and only copy those files
 COPY voice /opt/voice
 WORKDIR /opt/voice
 ENTRYPOINT ["/bin/bash", "./utt2wave.sh"]
