@@ -25,9 +25,18 @@ To train a voice model you will need:
 
 Training a voice requires a voice corpus and a grapheme to phoneme model or a lexicon.
 This recipe assumes you have both the audio data and a g2p model available in a directory called `ext/`
+
+ext/ directory format:
+``
+audio/*.wav
+index.tsv
+ipd_clean_slt2018.mdl
+``
+
 You can edit the run script to adapt it to your own data.
 
 If you are using the Talrómur corpus training the voice is as simple as:
+
 
 ```Bash
 cd voice
@@ -38,16 +47,32 @@ cd voice
 echo "Halló, ég kann að tala íslensku." | python3 normalize.py - - | ../festival/bin/text2wave -eval festvox/lvl_is_v0_clunits.scm -eval '(voice_lvl_is_v0_clunits)' > demo.wav
 ```  
 
-## Running with Docker
+## Training with Docker
 
 If you wish you can train your voice in a Docker container.
 To do this simply build the container using the included Dockerfile and run it:
 
 ```Bash
-docker build . --tag lvl-us-is
-docker run -it --rm -v ${PWD}/ext/:/usr/local/src/ext -v ${PWD}/voice/:/usr/local/src/voice lvl-us-is:latest bash -c "cd voice/; ./run.sh ../ext/"
+docker build . --tag lvl-us-is-train -f train.Dockerfile
+docker run -v ${PWD}/ext/:/usr/local/src/ext -v ${PWD}/voice/:/usr/local/src/voice lvl-us-is-train:latest
 ```
 
+## Running with Docker
+
+If you wish, you can make utterances in a Docker container.
+To do this simply build the runtime image using runtime.Dockerfile and run it:
+
+```Bash
+docker build . --tag lvl-us-is-run -f runtime.Dockerfile
+cd voice/
+# The docker container uses the default input and output files: input.txt and cmd.wav
+docker run -v ${PWD}:/usr/local/src/voice lvl-us-is-run:latest
+
+# If you specify the inputs and outputs, do this
+# You can change input.txt to any file with a single normalized utterance
+# You can change output.wav to any name you'd like. I
+docker run -v ${PWD}:/usr/local/src/voice lvl-us-is-run:latest input.txt output.wav
+```
 # License
 
 This recipe is published under the [MIT](LICENSE) license.
