@@ -64,14 +64,12 @@ To do this simply build the runtime image using runtime.Dockerfile and run it:
 
 ```Bash
 docker build . --tag lvl-us-is-run -f runtime.Dockerfile
-cd voice/
-# The docker container uses the default input and output files: input.txt and cmd.wav
-docker run -v ${PWD}:/usr/local/src/voice lvl-us-is-run:latest
+# The docker container uses the default input file: /opt/voice/input.txt
+docker run lvl-us-is-run:latest > output.wav
 
-# If you specify the inputs and outputs, do this
 # You can change input.txt to any file with a single normalized utterance
-# You can change output.wav to any name you'd like. I
-docker run -v ${PWD}:/usr/local/src/voice lvl-us-is-run:latest input.txt output.wav
+# If you want to change the input text, do something like this command
+docker run -v ${PWD}/hvad_segir_thu.txt:/opt/voice/input.txt lvl-us-is-run:latest > hvad.wav
 ```
 # License
 

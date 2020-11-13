@@ -31,7 +31,7 @@ RUN apt-get update && apt-get install -y \
 ENV LC_ALL C.UTF-8
 
 # Fetch and prepare Festival & friends
-WORKDIR /usr/local/src
+WORKDIR /opt
 RUN curl -L http://festvox.org/packed/festival/2.5/festival-2.5.0-release.tar.gz | \
     tar xz --no-same-owner --no-same-permissions && \
     curl -L http://festvox.org/packed/festival/2.5/speech_tools-2.5.0-release.tar.gz | \
@@ -47,27 +47,28 @@ RUN curl -L http://festvox.org/packed/festival/2.5/festival-2.5.0-release.tar.gz
     curl -L http://festvox.org/packed/festvox/2.8/festvox-2.8.0-release.tar.gz | \
     tar xz --no-same-owner --no-same-permissions
 
-ENV ESTDIR /usr/local/src/speech_tools
-ENV FESTVOXDIR /usr/local/src/festvox
-ENV SPTKDIR /usr/local
+ENV ESTDIR /opt/speech_tools
+ENV FESTVOXDIR /opt/festvox
+ENV SPTKDIR /opt
 
 # Build the Edinburgh Speech Tools
-WORKDIR /usr/local/src/speech_tools
+WORKDIR /opt/speech_tools
 RUN ./configure && make
 
 # Build Festival
-WORKDIR /usr/local/src/festival
+WORKDIR /opt/festival
 RUN ./configure && make
 
 # Build Festvox
-WORKDIR /usr/local/src/festvox
+WORKDIR /opt/festvox
 RUN ./configure && make
 
 RUN pip install --upgrade pip \
     && pip install numpy \
     && pip install git+https://github.com/sequitur-g2p/sequitur-g2p@master
 
-VOLUME ["/usr/local/src/voice"]
-WORKDIR /usr/local/src/voice
+COPY ext/*.mdl /opt/ext/ipd_clean_slt2018.mdl
+COPY voice /opt/voice
+WORKDIR /opt/voice
 ENTRYPOINT ["/bin/bash", "./utt2wave.sh"]
-CMD ["input.txt", "cmd.wav"]
+CMD ["input.txt"]
