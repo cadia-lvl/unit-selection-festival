@@ -22,8 +22,10 @@ grep -v '"[^"]*[0-9cwqz]' txt.complete.data > txt.nonum.data
 # For large databases this can take some time to run as there is a squared aspect 
 # to this based on the number of instances of each unit type.
 # So lets start with only 100 tokens, this number can be increased for better sound
- head -n 100 txt.nonum.data > etc/txt.done.data
-# Using all the tokens uncomment the line below if you only want to use a subset of the tokens
+head -n 100 txt.nonum.data > etc/txt.done.data
+# We've only successfully trained on ~2000 prompts. Training on ~2000 prompts
+# needed to be done overnight.
+# Using all the tokens uncomment the line below if you want to use all of the tokens
 # cp -p txt.nonum.data etc/txt.done.data
 
 # Create a lexicon
