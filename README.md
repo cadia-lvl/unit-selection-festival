@@ -27,11 +27,11 @@ Training a voice requires a voice corpus and a grapheme to phoneme model or a le
 This recipe assumes you have both the audio data and a g2p model available in a directory called `ext/`
 
 ext/ directory format:
-``
+```
 audio/*.wav
 index.tsv
 ipd_clean_slt2018.mdl
-``
+```
 
 You can edit the run script to adapt it to your own data.
 
