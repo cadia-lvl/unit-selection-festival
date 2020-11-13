@@ -67,5 +67,7 @@ RUN pip install --upgrade pip \
     && pip install numpy \
     && pip install git+https://github.com/sequitur-g2p/sequitur-g2p@master
 
-WORKDIR /usr/local/src
-
+VOLUME ["/usr/local/src/voice"]
+WORKDIR /usr/local/src/voice
+ENTRYPOINT ["/bin/bash", "./utt2wave.sh"]
+CMD ["input.txt", "cmd.wav"]
