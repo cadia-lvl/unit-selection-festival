@@ -67,10 +67,25 @@ RUN pip install --upgrade pip \
     && pip install numpy \
     && pip install git+https://github.com/sequitur-g2p/sequitur-g2p@master
 
-COPY ext/*.mdl /opt/ext/ipd_clean_slt2018.mdl
-# TODO: Instead of copying all of the voice directory, figure out whats
-# necessary to run the voice and only copy those files
-COPY voice /opt/voice
+# Copy the files necessary to run the voice
+WORKDIR /opt/ext
+COPY ext/*.mdl ipd_clean_slt2018.mdl
+
+WORKDIR /opt/festival/lib/voices/is/lvl_is_v0_clunits
+COPY voice/festvox/*.scm festvox/
+COPY voice/festival/clunits/lvl_is_v0.catalogue festival/clunits/lvl_is_v0.catalogue
+COPY voice/festival/trees/lvl_is_v0.tree festival/trees/lvl_is_v0.tree
+COPY voice/mcep/*.mcep mcep/
+COPY voice/wav wav
+
+# create text2wave.sh and input.txt in this dockerfile
 WORKDIR /opt/voice
-ENTRYPOINT ["/bin/bash", "./utt2wave.sh"]
+COPY voice/festvox festvox
+RUN echo "halló ég kann að tala íslensku" > input.txt
+RUN docvar=$(echo -n "/opt/festival/bin/text2wave -eval festvox/lvl_is_v0_clunits.scm ") \
+    && docvar2=$(echo -n "-eval '(voice_lvl_is_v0_clunits)' \$1") \
+    && echo $docvar $docvar2 > text2wave.sh
+
+WORKDIR /opt/voice
+ENTRYPOINT ["/bin/bash", "./text2wave.sh"]
 CMD ["input.txt"]
