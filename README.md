@@ -23,13 +23,13 @@ To train a voice model you will need:
 
 # Training
 
-Training a voice requires a voice corpus and a grapheme to phoneme model or a lexicon.
-This recipe assumes you have both the audio data and a g2p model available in a directory called `ext/`
+Training a voice requires a voice corpus, a [Sequitur](https://github.com/sequitur-g2p/sequitur-g2p) grapheme to phoneme model and an optional lexicon.
+This documentaion assumes you have both the data and a g2p model available in a directory called ext/.
 
 ext/ directory format:
 ```
-audio/*.wav
-index.tsv
+data/audio/*.wav
+data/index.tsv
 ipd_clean_slt2018.mdl
 ```
 
@@ -40,7 +40,7 @@ If you are using the Talrómur corpus training the voice is as simple as:
 
 ```Bash
 cd voice
-./run.sh ../ext/
+./run.sh ../ext/data ../ext/ipd_clean_slt2018.mdl
 
 # Synthesize by calling something like this:
 # This only works within the voice directory
@@ -54,7 +54,7 @@ To do this simply build the container using the included Dockerfile and run it:
 
 ```Bash
 docker build . --tag lvl-us-is-train -f train.Dockerfile
-docker run -v ${PWD}/ext/:/usr/local/src/ext -v ${PWD}/voice/:/usr/local/src/voice lvl-us-is-train:latest
+docker run -v ${PWD}/ext/data/:/usr/local/src/ext/data -v ${PWD}/ext/ipd_clean_slt2018.mdl:/usr/local/src/ext/ipd_clean_slt2018.mdl -v ${PWD}/voice/:/usr/local/src/voice lvl-us-is-train:latest
 ```
 
 ## Running with Docker

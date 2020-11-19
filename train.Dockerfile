@@ -71,4 +71,4 @@ VOLUME ["/usr/local/src/voice"]
 VOLUME ["/usr/local/src/ext"]
 WORKDIR /usr/local/src/voice
 ENTRYPOINT ["/bin/bash", "./run.sh"]
-CMD ["../ext/"]
+CMD ["../ext/data", "../ext/ipd_clean_slt2018.mdl"]

@@ -41,7 +41,7 @@ python3 normalize.py $1/index.tsv "-" | grep -o "[^ ]*" | sort | uniq > vocabula
 # cat audio-vocabulary.txt additional-vocabulary.txt | sort | uniq > vocabulary.txt
 
 # Create phoneme transcriptions
-g2p.py --model $1/ipd_clean_slt2018.mdl --apply vocabulary.txt --encoding utf-8 > lexicon.txt
+g2p.py --model $2 --apply vocabulary.txt --encoding utf-8 > lexicon.txt
 
 # Create a compiled lexicon from text lexicon
 python3 build_lexicon.py aipa-map.tsv lexicon.txt festvox/lexicon.scm
