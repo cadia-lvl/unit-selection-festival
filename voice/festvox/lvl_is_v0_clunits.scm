@@ -174,30 +174,13 @@ plus previous phone (or something else)."
 			(string-equal "h#" (item.feat i "p.name")))
 		    (string-equal "pau" (item.feat i "n.name")))))
       "ignore")
-     ;; Comment out this if you want a more interesting unit name
-;     ((null nil)
-;      name)
-;
-     ;; Comment out the above if you want to use these rules
-     ((string-equal "+" (item.feat i "ph_vc"))
-      (string-append
-       name
+
+     (string-append
+       (item.name i)
        "_"
-       (item.feat i "R:SylStructure.parent.stress")
-       "_"
-       (lvl_is_v0::nextvoicing i)))
-     ((string-equal name "pau")
-      (string-append
-       name
-       "_"
-       (lvl_is_v0::nextvoicing i)))
-     (t
-      (string-append
-       name
-       "_"
-;       (item.feat i "seg_onsetcoda")
-;       "_"
-       (lvl_is_v0::nextvoicing i))))))
+       (item.feat i "p.name")
+     )
+)))
 
 (define (lvl_is_v0::clunits_load)
   "(lvl_is_v0::clunits_load)
