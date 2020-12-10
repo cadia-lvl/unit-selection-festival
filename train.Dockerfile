@@ -14,11 +14,10 @@ RUN apt-get update && apt-get install -y \
       ncurses-dev \
       nvi \
       pkg-config \
-      python \
-      python-dev \
-      python-setuptools \
-      python-pip \
       python3 \
+      python3-dev \
+      python3-setuptools \
+      python3-pip \
       unzip \
       wavpack \
       wget \
@@ -63,9 +62,9 @@ RUN ./configure && make
 WORKDIR /usr/local/src/festvox
 RUN ./configure && make
 
-RUN pip install --upgrade pip \
-    && pip install numpy \
-    && pip install git+https://github.com/sequitur-g2p/sequitur-g2p@master
+RUN pip3 install --upgrade pip \
+    && pip3 install numpy \
+    && pip3 install git+https://github.com/sequitur-g2p/sequitur-g2p@master
 
 VOLUME ["/usr/local/src/voice"]
 VOLUME ["/usr/local/src/ext"]
