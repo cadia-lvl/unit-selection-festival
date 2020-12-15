@@ -44,7 +44,7 @@ python3 normalize.py $1/index.tsv "-" | grep -o "[^ ]*" | sort | uniq > vocabula
 g2p.py --model $2 --apply vocabulary.txt --encoding utf-8 > lexicon.txt
 
 # Create a compiled lexicon from text lexicon
-python3 build_lexicon.py aipa-map.tsv lexicon.txt festvox/lexicon.scm
+python3 build_lexicon.py ipa2sampa-map.tsv lexicon.txt festvox/lexicon.scm
 
 # Do the thing
 bin/do_build
