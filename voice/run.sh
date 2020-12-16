@@ -22,7 +22,7 @@ grep -v '"[^"]*[0-9cwqz]' txt.complete.data > txt.nonum.data
 # For large databases this can take some time to run as there is a squared aspect 
 # to this based on the number of instances of each unit type.
 # So lets start with only 100 tokens, this number can be increased for better sound
-head -n 100 txt.nonum.data > etc/txt.done.data
+head -n 2000 txt.nonum.data > etc/txt.done.data
 # We've only successfully trained on ~2000 prompts. Training on ~2000 prompts
 # needed to be done overnight.
 # Using all the tokens uncomment the line below if you want to use all of the tokens
@@ -44,7 +44,7 @@ python3 normalize.py $1/index.tsv "-" | grep -o "[^ ]*" | sort | uniq > vocabula
 g2p.py --model $2 --apply vocabulary.txt --encoding utf-8 > lexicon.txt
 
 # Create a compiled lexicon from text lexicon
-python3 build_lexicon.py ipa2sampa-map.tsv lexicon.txt festvox/lexicon.scm
+python3 build_lexicon.py sampa-map.tsv lexicon.txt festvox/lexicon.scm
 
 # Do the thing
 bin/do_build

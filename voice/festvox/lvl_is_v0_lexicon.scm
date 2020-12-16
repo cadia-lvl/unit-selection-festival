@@ -45,7 +45,7 @@
 )
 
 (set! str_phone_map
-  (load "festvox/lvl_is_v0_aipa.scm" t)
+  (load "festvox/lvl_is_v0_sampa.scm" t)
 )
 
 (define (str_to_phoneme ord)
@@ -78,7 +78,7 @@ This is very inefficient since the method is called for every word seperetly."
 )
 
 (define (strs_to_phoneme phoneme_strs)
-  "Given a string of phonemes seperated by a space
+  "Given a string of phonemes separated by a space
 return a list of the phoneme symbols"
   (set! phones (string-split phoneme_strs " "))
   (set! phones_out (list))
