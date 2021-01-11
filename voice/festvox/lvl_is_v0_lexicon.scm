@@ -56,11 +56,11 @@
 
 (define (g2ppy word)
   "Call g2p model to get phoneme transcription.
-This is very inefficient since the method is called for every word seperetly."
+This is very inefficient since the method is called for every word separately."
   (system
     (format
       nil
-      "g2p.py --model ../ext/ipd_clean_slt2018.mdl --encoding utf-8 -w %s | awk '{print \"\\\"\"$0\"\\\"\"}' > ttmp.scm\n"
+      "f_g2p.py --model ../ext/ipd_clean_slt2018.mdl -w %s | awk '{print \"\\\"\"$0\"\\\"\"}' > ttmp.scm\n"
       word
     )
   )

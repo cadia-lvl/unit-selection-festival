@@ -35,14 +35,20 @@ head -n 2000 txt.nonum.data > etc/txt.done.data
 python3 normalize.py $1/index.tsv "-" | grep -o "[^ ]*" | sort | uniq > vocabulary.txt
 
 # Add additional vocabulary
-# This is highly recomended but needs additional resources you can find online
+# This is highly recommended but needs additional resources you can find online
 # mv vocabulary.txt audio-vocabulary.txt
 # cut -f1 framburdarordabok.txt > additional-vocabulary.txt
 # cat audio-vocabulary.txt additional-vocabulary.txt | sort | uniq > vocabulary.txt
 
 # Create phoneme transcriptions
-g2p.py --model $2 --apply vocabulary.txt --encoding utf-8 > lexicon.txt
+if [[ $2 =~ \.mdl$ ]]; then
+  g2p.py --model $2 --apply vocabulary.txt --encoding utf-8 > lexicon.txt
+else
+  f_g2p.py --model $2 --apply vocabulary.txt > lexicon.txt
+fi
 
+# TODO: NOTE this might not be needed anymore since x-sampa already are ascii
+# readable phonemes
 # Create a compiled lexicon from text lexicon
 python3 build_lexicon.py sampa-map.tsv lexicon.txt festvox/lexicon.scm
 
