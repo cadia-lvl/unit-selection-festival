@@ -8,7 +8,7 @@ The voice inside `voice/` was built using `$FESTVOX/src/unitsel/setup_clunits` a
 - [Installation](#installation)
 - [Training](#training)
   * [Training with Docker](#training-with-docker)
-- [Runninb](#running)
+- [Running](#running)
   * [Running with Docker](#running-with-docker)
 - [License](#license)
 - [Authors/Credit](#authors-credit)
