@@ -1,7 +1,8 @@
 # Unit selection recipe for Icelandic 
 
 This is a default unit selection recipe for The Festival Speech Synthesis System.
-The voice inside `voice/` was built using `$FESTVOX/src/unitsel/setup_clunits` and then adapted to work for Icelandic. 
+The voice configuration inside `voice/` was built using `$FESTVOX/src/unitsel/setup_clunits` and then adapted to work for Icelandic data.
+
 
 # Table of Contents
 
@@ -14,22 +15,24 @@ The voice inside `voice/` was built using `$FESTVOX/src/unitsel/setup_clunits` a
 - [Authors/Credit](#authors-credit)
   * [Acknowledgements](#acknowledgements)
 
+
 # Installation
 
-This recipe is built for The Festival Speech Synthesis System.
-To train a voice model you will need:
+This recipe is built with The Festival Speech Synthesis System.
+To train and run a voice model you will need to install:
 
 * The Festival Speech Synthesis System
 * The Edinburgh Speech Tools Library
 * Festvox
+* [Sequitur](https://github.com/sequitur-g2p/sequitur-g2p)
 
 
 # Training
 
 Training a voice requires a voice corpus, a [Sequitur](https://github.com/sequitur-g2p/sequitur-g2p) grapheme to phoneme model and an optional lexicon.
-This documentaion assumes you have both the data and a g2p model available in a directory called ext/.
+This documentaion assumes you are using the Talromur corpus and you have the data and a g2p model available in a directory called ext/.
 
-ext/ directory format:
+`ext/` directory format:
 ```
 data/audio/*.wav
 data/index.tsv
@@ -38,7 +41,7 @@ ipd_clean_slt2018.mdl
 
 You can edit the run script to adapt it to your own data.
 
-If you are using the Talrómur corpus training the voice is as simple as:
+If you are using the Talrómur corpus and have set up the `ext/` directory correctly training the voice is as simple as:
 
 
 ```Bash
@@ -46,20 +49,24 @@ cd voice
 ./run.sh ../ext/data ../ext/ipd_clean_slt2018.mdl
 ```  
 
+If you want to use your own data replace the parameters to the run script with your data folder and your g2p model.
+
+
 ## Training with Docker
 
-If you wish you can train your voice in a Docker container.
-To do this simply build the container using the included Dockerfile and run it:
+If you wishi, you can train your voice in a Docker container.
+To do this simply build a container using the included configuration in `train.Dockerfile` and run it:
 
 ```Bash
 docker build . --tag lvl-us-is-train -f train.Dockerfile
 docker run -v ${PWD}/ext/data/:/usr/local/src/ext/data -v ${PWD}/ext/ipd_clean_slt2018.mdl:/usr/local/src/ext/ipd_clean_slt2018.mdl -v ${PWD}/voice/:/usr/local/src/voice lvl-us-is-train:latest
 ```
 
+
 # Running
 
-After training a model you can synthesise new audio.
-The synthesize process does need the same grapheme to phoneme model as used for training in addition to the files and folders produced in the training process.
+After training a model you can synthesize new audio.
+The synthesis process does need the same grapheme to phoneme model as used for training in addition to the files and folders produced in the training process.
 
 
 ```Bash
@@ -70,7 +77,7 @@ echo "Halló, ég kann að tala íslensku." | python3 normalize.py - - | ../fest
 
 ## Running with Docker
 
-If you are using Docker you can synthesize by building and running runtime.Dockerfile.
+If you are using Docker you can synthesize by building and running `runtime.Dockerfile`.
 
 ```Bash
 docker build . --tag lvl-us-is-run -f runtime.Dockerfile
@@ -82,14 +89,17 @@ docker run lvl-us-is-run:latest > output.wav
 docker run -v ${PWD}/hvad_segir_thu.txt:/opt/voice/input.txt lvl-us-is-run:latest > hvad.wav
 ```
 
+
 # License
 
 This recipe is published under the [MIT](LICENSE) license.
+
 
 # Authors/Credit
 Reykjavik University
 
 Þorsteinn Daði Gunnarsson <thorsteinng@ru.is>
+
 
 ## Acknowledgements
 
