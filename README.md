@@ -7,6 +7,8 @@ The voice inside `voice/` was built using `$FESTVOX/src/unitsel/setup_clunits` a
 
 - [Installation](#installation)
 - [Training](#training)
+  * [Training with Docker](#training-with-docker)
+- [Runninb](#running)
   * [Running with Docker](#running-with-docker)
 - [License](#license)
 - [Authors/Credit](#authors-credit)
@@ -20,6 +22,7 @@ To train a voice model you will need:
 * The Festival Speech Synthesis System
 * The Edinburgh Speech Tools Library
 * Festvox
+
 
 # Training
 
@@ -41,10 +44,6 @@ If you are using the Talrómur corpus training the voice is as simple as:
 ```Bash
 cd voice
 ./run.sh ../ext/data ../ext/ipd_clean_slt2018.mdl
-
-# Synthesize by calling something like this:
-# This only works within the voice directory
-echo "Halló, ég kann að tala íslensku." | python3 normalize.py - - | ../festival/bin/text2wave -eval festvox/lvl_is_v0_clunits.scm -eval '(voice_lvl_is_v0_clunits)' > demo.wav
 ```  
 
 ## Training with Docker
@@ -57,10 +56,21 @@ docker build . --tag lvl-us-is-train -f train.Dockerfile
 docker run -v ${PWD}/ext/data/:/usr/local/src/ext/data -v ${PWD}/ext/ipd_clean_slt2018.mdl:/usr/local/src/ext/ipd_clean_slt2018.mdl -v ${PWD}/voice/:/usr/local/src/voice lvl-us-is-train:latest
 ```
 
+# Running
+
+After training a model you can synthesise new audio.
+The synthesize process does need the same grapheme to phoneme model as used for training in addition to the files and folders produced in the training process.
+
+
+```Bash
+# Synthesize by calling something like this:
+# This only works within the voice directory
+echo "Halló, ég kann að tala íslensku." | python3 normalize.py - - | ../festival/bin/text2wave -eval festvox/lvl_is_v0_clunits.scm -eval '(voice_lvl_is_v0_clunits)' > demo.wav
+```  
+
 ## Running with Docker
 
-If you wish, you can make utterances in a Docker container.
-To do this simply build the runtime image using runtime.Dockerfile and run it:
+If you are using Docker you can synthesize by building and running runtime.Dockerfile.
 
 ```Bash
 docker build . --tag lvl-us-is-run -f runtime.Dockerfile
@@ -71,6 +81,7 @@ docker run lvl-us-is-run:latest > output.wav
 # If you want to change the input text, do something like this command
 docker run -v ${PWD}/hvad_segir_thu.txt:/opt/voice/input.txt lvl-us-is-run:latest > hvad.wav
 ```
+
 # License
 
 This recipe is published under the [MIT](LICENSE) license.
