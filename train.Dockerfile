@@ -1,4 +1,4 @@
-FROM ubuntu:xenial
+FROM python:3.7-stretch
 MAINTAINER Þorsteinn Daði Gunnarsson <thorsteinng@ru.is>
 
 RUN apt-get update && apt-get install -y \
@@ -62,12 +62,15 @@ RUN ./configure && make
 WORKDIR /usr/local/src/festvox
 RUN ./configure && make
 
-RUN pip3 install --upgrade pip \
-    && pip3 install numpy \
-    && pip3 install git+https://github.com/sequitur-g2p/sequitur-g2p@master
+RUN pip3 install numpy \
+    && pip3 install git+https://github.com/sequitur-g2p/sequitur-g2p@master \
+    && pip3 install torch==1.7.1+cpu --find-links https://download.pytorch.org/whl/torch_stable.html \
+    && pip3 install fairseq
+
+ENV G2P_MODEL_DIR=/app/fairseq_g2p/
 
 VOLUME ["/usr/local/src/voice"]
 VOLUME ["/usr/local/src/ext"]
 WORKDIR /usr/local/src/voice
 ENTRYPOINT ["/bin/bash", "./run.sh"]
-CMD ["../ext/data", "../ext/ipd_clean_slt2018.mdl"]
+CMD ["../ext/data", "standard"]
