@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # Author: Judy Fong <lvl@judyyfong.xyz.> Reykjavik University
 # Description: Create tsv version of phonemes and allow input from the command
 # line
@@ -36,7 +37,7 @@ if __name__ == '__main__':
         Create grapheme to phoneme tsv''')
     parser.add_argument('--model', help='the dialect model')
     parser.add_argument('-a', '--apply',
-        help='apply grapheme to phoneme converstion to the word list file')
+        help='apply grapheme to phoneme conversion to the word list file')
     parser.add_argument('-w', '--word',
         help='apply grapheme to phoneme conversion to word')
     args = parser.parse_args()
