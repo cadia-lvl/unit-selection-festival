@@ -60,7 +60,7 @@ This is very inefficient since the method is called for every word separately."
   (system
     (format
       nil
-      "f_g2p.py --model ../ext/ipd_clean_slt2018.mdl -w %s | awk '{print \"\\\"\"$0\"\\\"\"}' > ttmp.scm\n"
+      "f_g2p.py --model standard -w %s | awk '{print \"\\\"\"$0\"\\\"\"}' > ttmp.scm\n"
       word
     )
   )
