@@ -42,9 +42,9 @@ python3 normalize.py $1/index.tsv "-" | grep -o "[^ ]*" | sort | uniq > vocabula
 
 # Create phoneme transcriptions
 if [[ $2 =~ \.mdl$ ]]; then
-  g2p.py --model $2 --apply vocabulary.txt --encoding utf-8 > lexicon.txt
+  g2p.py --model $2 --apply vocabulary.txt --encoding utf-8 > lexicon_seq.txt
 else
-  f_g2p.py --model $2 --apply vocabulary.txt > lexicon.txt
+  python3 f_g2p.py --model $2 --apply vocabulary.txt > lexicon.txt
 fi
 
 # TODO: NOTE this might not be needed anymore since x-sampa already are ascii
