@@ -1,32 +1,38 @@
 # Unit selection recipe for Icelandic 
 
 This is a default unit selection recipe for The Festival Speech Synthesis System.
-The voice inside `voice/` was built using `$FESTVOX/src/unitsel/setup_clunits` and then adapted to work for Icelandic. 
+The voice configuration inside `voice/` was built using `$FESTVOX/src/unitsel/setup_clunits` and then adapted to work for Icelandic data.
+
 
 # Table of Contents
 
 - [Installation](#installation)
 - [Training](#training)
+  * [Training with Docker](#training-with-docker)
+- [Running](#running)
   * [Running with Docker](#running-with-docker)
 - [License](#license)
 - [Authors/Credit](#authors-credit)
   * [Acknowledgements](#acknowledgements)
 
+
 # Installation
 
-This recipe is built for The Festival Speech Synthesis System.
-To train a voice model you will need:
+This recipe is built with The Festival Speech Synthesis System.
+To train and run a voice model you will need to install:
 
 * The Festival Speech Synthesis System
 * The Edinburgh Speech Tools Library
 * Festvox
+* [fairseq g2p models](https://github.com/grammatek/g2p-lstm)
+
 
 # Training
 
 Training a voice requires a voice corpus, a [fairseq](https://github.com/grammatek/g2p-lstm) grapheme to phoneme model and an optional lexicon.
-This documentaion assumes you have both the data and a g2p model available in a directory called ext/.
+This documentaion assumes you are using the Talromur corpus and you have the data and a g2p model available in a directory called ext/.
 
-ext/ directory format:
+`ext/` directory format:
 ```
 data/audio/*.wav
 data/index.tsv
@@ -35,32 +41,43 @@ g2p-lstm/
 
 You can edit the run script to adapt it to your own data.
 
-If you are using the Talrómur corpus training the voice is as simple as:
+If you are using the Talrómur corpus and have set up the `ext/` directory correctly training the voice is as simple as:
 
 
 ```Bash
 cd voice
 ./run.sh ../ext/data standard
-
-# Synthesize by calling something like this:
-# This only works within the voice directory
-echo "Halló, ég kann að tala íslensku." | python3 normalize.py - - | ../festival/bin/text2wave -eval festvox/lvl_is_v0_clunits.scm -eval '(voice_lvl_is_v0_clunits)' > demo.wav
 ```  
+
+If you want to use your own data replace the parameters to the run script with your data folder and your g2p model.
+
 
 ## Training with Docker
 
-If you wish you can train your voice in a Docker container.
-To do this simply build the container using the included Dockerfile and run it:
+If you wishi, you can train your voice in a Docker container.
+To do this simply build a container using the included configuration in `train.Dockerfile` and run it:
 
 ```Bash
 docker build . --tag lvl-us-is-train -f train.Dockerfile
 docker run -v ${PWD}/ext/data:/usr/local/src/ext/data -v ${PWD}/ext/g2p-lstm/:/app/fairseq_g2p -v ${PWD}/voice/:/usr/local/src/voice lvl-us-is-train:latest
 ```
 
+
+# Running
+
+After training a model you can synthesize new audio.
+The synthesis process does need the same grapheme to phoneme model as used for training in addition to the files and folders produced in the training process.
+
+
+```Bash
+# Synthesize by calling something like this:
+# This only works within the voice directory
+echo "Halló, ég kann að tala íslensku." | python3 normalize.py - - | ../festival/bin/text2wave -eval festvox/lvl_is_v0_clunits.scm -eval '(voice_lvl_is_v0_clunits)' > demo.wav
+```  
+
 ## Running with Docker
 
-If you wish, you can make utterances in a Docker container.
-To do this simply build the runtime image using runtime.Dockerfile and run it:
+If you are using Docker you can synthesize by building and running `runtime.Dockerfile`.
 
 ```Bash
 docker build . --tag lvl-us-is-run -f runtime.Dockerfile
@@ -71,14 +88,18 @@ docker run lvl-us-is-run:latest > output.wav
 # If you want to change the input text, do something like this command
 docker run -v ${PWD}/hvad_segir_thu.txt:/opt/voice/input.txt lvl-us-is-run:latest > hvad.wav
 ```
+
+
 # License
 
 This recipe is published under the [MIT](LICENSE) license.
+
 
 # Authors/Credit
 Reykjavik University
 
 Þorsteinn Daði Gunnarsson <thorsteinng@ru.is>
+
 
 ## Acknowledgements
 
