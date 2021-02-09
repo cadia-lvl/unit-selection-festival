@@ -40,7 +40,7 @@ If you are using the Talrómur corpus training the voice is as simple as:
 
 ```Bash
 cd voice
-./run.sh ../ext/data ../ext/ipd_clean_slt2018.mdl
+./run.sh ../ext/data standard
 
 # Synthesize by calling something like this:
 # This only works within the voice directory

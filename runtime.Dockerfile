@@ -72,8 +72,8 @@ RUN pip3 install --upgrade pip \
 ENV G2P_MODEL_DIR=/app/fairseq_g2p/
 
 WORKDIR /app/fairseq_g2p/
-COPY ext/checkpoints fairseq_g2p/checkpoints
-COPY ext/data-bin fairseq_g2p/data-bin
+COPY ext/g2p-lstm/checkpoints fairseq_g2p/checkpoints
+COPY ext/g2p-lstm/data-bin fairseq_g2p/data-bin
 
 WORKDIR /opt/festival/lib/voices/is/lvl_is_v0_clunits
 COPY voice/festvox/*.scm festvox/
