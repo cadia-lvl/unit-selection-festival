@@ -54,7 +54,7 @@ To do this simply build the container using the included Dockerfile and run it:
 
 ```Bash
 docker build . --tag lvl-us-is-train -f train.Dockerfile
-docker run -v ${PWD}/ext/data:/usr/local/src/ext/data -v ${PWD}/ext/g2p-lstm/:/app/fairseq_g2p -v ${PWD}/voice/:/usr/local/src/voice lvl-us-is-fair:latest
+docker run -v ${PWD}/ext/data:/usr/local/src/ext/data -v ${PWD}/ext/g2p-lstm/:/app/fairseq_g2p -v ${PWD}/voice/:/usr/local/src/voice lvl-us-is-train:latest
 ```
 
 ## Running with Docker
