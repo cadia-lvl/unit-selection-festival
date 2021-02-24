@@ -1,4 +1,4 @@
-FROM ubuntu:xenial
+FROM python:3.7-stretch
 MAINTAINER Þorsteinn Daði Gunnarsson <thorsteinng@ru.is>
 
 RUN apt-get update && apt-get install -y \
@@ -64,11 +64,16 @@ RUN ./configure && make
 
 RUN pip3 install --upgrade pip \
     && pip3 install numpy \
-    && pip3 install git+https://github.com/sequitur-g2p/sequitur-g2p@master
+    && pip3 install git+https://github.com/sequitur-g2p/sequitur-g2p@master \
+    && pip3 install torch==1.7.1+cpu --find-links https://download.pytorch.org/whl/torch_stable.html \
+    && pip3 install fairseq
 
 # Copy the files necessary to run the voice
-WORKDIR /opt/ext
-COPY ext/*.mdl ipd_clean_slt2018.mdl
+ENV G2P_MODEL_DIR=/app/fairseq_g2p/
+
+WORKDIR /app/fairseq_g2p/
+COPY ext/g2p-lstm/checkpoints fairseq_g2p/checkpoints
+COPY ext/g2p-lstm/data-bin fairseq_g2p/data-bin
 
 WORKDIR /opt/festival/lib/voices/is/lvl_is_v0_clunits
 COPY voice/festvox/*.scm festvox/

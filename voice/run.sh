@@ -22,7 +22,7 @@ grep -v '"[^"]*[0-9cwqz]' txt.complete.data > txt.nonum.data
 # For large databases this can take some time to run as there is a squared aspect 
 # to this based on the number of instances of each unit type.
 # So lets start with only 100 tokens, this number can be increased for better sound
-head -n 100 txt.nonum.data > etc/txt.done.data
+head -n 2000 txt.nonum.data > etc/txt.done.data
 # We've only successfully trained on ~2000 prompts. Training on ~2000 prompts
 # needed to be done overnight.
 # Using all the tokens uncomment the line below if you want to use all of the tokens
@@ -35,16 +35,22 @@ head -n 100 txt.nonum.data > etc/txt.done.data
 python3 normalize.py $1/index.tsv "-" | grep -o "[^ ]*" | sort | uniq > vocabulary.txt
 
 # Add additional vocabulary
-# This is highly recomended but needs additional resources you can find online
+# This is highly recommended but needs additional resources you can find online
 # mv vocabulary.txt audio-vocabulary.txt
 # cut -f1 framburdarordabok.txt > additional-vocabulary.txt
 # cat audio-vocabulary.txt additional-vocabulary.txt | sort | uniq > vocabulary.txt
 
 # Create phoneme transcriptions
-g2p.py --model $2 --apply vocabulary.txt --encoding utf-8 > lexicon.txt
+if [[ $2 =~ \.mdl$ ]]; then
+  g2p.py --model $2 --apply vocabulary.txt --encoding utf-8 > lexicon_seq.txt
+else
+  python3 f_g2p.py --model $2 --apply vocabulary.txt > lexicon.txt
+fi
 
+# TODO: NOTE this might not be needed anymore since x-sampa already are ascii
+# readable phonemes
 # Create a compiled lexicon from text lexicon
-python3 build_lexicon.py aipa-map.tsv lexicon.txt festvox/lexicon.scm
+python3 build_lexicon.py sampa-map.tsv lexicon.txt festvox/lexicon.scm
 
 # Do the thing
 bin/do_build

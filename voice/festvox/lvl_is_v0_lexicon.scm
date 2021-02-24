@@ -45,7 +45,7 @@
 )
 
 (set! str_phone_map
-  (load "festvox/lvl_is_v0_aipa.scm" t)
+  (load "festvox/lvl_is_v0_sampa.scm" t)
 )
 
 (define (str_to_phoneme ord)
@@ -56,11 +56,11 @@
 
 (define (g2ppy word)
   "Call g2p model to get phoneme transcription.
-This is very inefficient since the method is called for every word seperetly."
+This is very inefficient since the method is called for every word separately."
   (system
     (format
       nil
-      "g2p.py --model ../ext/ipd_clean_slt2018.mdl --encoding utf-8 -w %s | awk '{print \"\\\"\"$0\"\\\"\"}' > ttmp.scm\n"
+      "python3 f_g2p.py --model standard -w %s > ttmp.scm\n"
       word
     )
   )
@@ -78,7 +78,7 @@ This is very inefficient since the method is called for every word seperetly."
 )
 
 (define (strs_to_phoneme phoneme_strs)
-  "Given a string of phonemes seperated by a space
+  "Given a string of phonemes separated by a space
 return a list of the phoneme symbols"
   (set! phones (string-split phoneme_strs " "))
   (set! phones_out (list))

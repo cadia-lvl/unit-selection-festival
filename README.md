@@ -24,19 +24,19 @@ To train and run a voice model you will need to install:
 * The Festival Speech Synthesis System
 * The Edinburgh Speech Tools Library
 * Festvox
-* [Sequitur](https://github.com/sequitur-g2p/sequitur-g2p)
+* [fairseq g2p models](https://github.com/grammatek/g2p-lstm)
 
 
 # Training
 
-Training a voice requires a voice corpus, a [Sequitur](https://github.com/sequitur-g2p/sequitur-g2p) grapheme to phoneme model and an optional lexicon.
+Training a voice requires a voice corpus, a [fairseq](https://github.com/grammatek/g2p-lstm) grapheme to phoneme model and an optional lexicon.
 This documentaion assumes you are using the Talromur corpus and you have the data and a g2p model available in a directory called ext/.
 
 `ext/` directory format:
 ```
 data/audio/*.wav
 data/index.tsv
-ipd_clean_slt2018.mdl
+g2p-lstm/
 ```
 
 You can edit the run script to adapt it to your own data.
@@ -46,7 +46,7 @@ If you are using the Talrómur corpus and have set up the `ext/` directory corre
 
 ```Bash
 cd voice
-./run.sh ../ext/data ../ext/ipd_clean_slt2018.mdl
+./run.sh ../ext/data standard
 ```  
 
 If you want to use your own data replace the parameters to the run script with your data folder and your g2p model.
@@ -59,7 +59,7 @@ To do this simply build a container using the included configuration in `train.D
 
 ```Bash
 docker build . --tag lvl-us-is-train -f train.Dockerfile
-docker run -v ${PWD}/ext/data/:/usr/local/src/ext/data -v ${PWD}/ext/ipd_clean_slt2018.mdl:/usr/local/src/ext/ipd_clean_slt2018.mdl -v ${PWD}/voice/:/usr/local/src/voice lvl-us-is-train:latest
+docker run -v ${PWD}/ext/data:/usr/local/src/ext/data -v ${PWD}/ext/g2p-lstm/:/app/fairseq_g2p -v ${PWD}/voice/:/usr/local/src/voice lvl-us-is-train:latest
 ```
 
 
