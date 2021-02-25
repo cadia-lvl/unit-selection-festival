@@ -175,10 +175,19 @@ plus previous phone (or something else)."
 		    (string-equal "pau" (item.feat i "n.name")))))
       "ignore")
 
-     (string-append
-       (item.name i)
+     ((and (string-equal "pau" name)
+        (string-equal "pau" (item.feat i "p.name")))
+      (string-append
+        name
+        "_"
+        (item.feat i "p.name")
+        "_"
+        (item.feat i "n.name")))
+
+     (t (string-append
+       name
        "_"
-       (item.feat i "p.name")
+       (item.feat i "p.name"))
      )
 )))
 
