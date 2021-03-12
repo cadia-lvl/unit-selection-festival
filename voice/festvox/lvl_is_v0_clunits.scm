@@ -166,29 +166,29 @@ this we just use the phone name, but you may want to make this, phone
 plus previous phone (or something else)."
   (let ((name (item.name i)))
     (cond
-     ((and (not lvl_is_v0::clunits_loaded)
-	   (or (string-equal "h#" name) 
-	       (string-equal "1" (item.feat i "ignore"))
-	       (and (string-equal "pau" name)
-		    (or (string-equal "pau" (item.feat i "p.name"))
-			(string-equal "h#" (item.feat i "p.name")))
-		    (string-equal "pau" (item.feat i "n.name")))))
-      "ignore")
-
-     ((and (string-equal "pau" name)
+      ((and (not lvl_is_v0::clunits_loaded)
+	      (or (string-equal "0" name) 
+	        (string-equal "1" (item.feat i "ignore"))
+	        (and (string-equal "pau" name)
+		        (or (string-equal "pau" (item.feat i "p.name"))
+			        (string-equal "0" (item.feat i "p.name")))
+		        (string-equal "pau" (item.feat i "n.name")))))
+        "ignore")
+      ((null nil)
+        name)
+      ((and (string-equal "pau" name)
         (string-equal "pau" (item.feat i "p.name")))
-      (string-append
+        (string-append
+          name
+          "_"
+          (item.feat i "p.name")
+          "_"
+          (item.feat i "n.name")))
+
+      (t (string-append
         name
         "_"
-        (item.feat i "p.name")
-        "_"
-        (item.feat i "n.name")))
-
-     (t (string-append
-       name
-       "_"
-       (item.feat i "p.name"))
-     )
+        (item.feat i "p.name")))
 )))
 
 (define (lvl_is_v0::clunits_load)
