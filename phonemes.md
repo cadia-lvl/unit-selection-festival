@@ -5,9 +5,10 @@
 | name | values |  note |
 |-|-|-|
 | vc | consonant, vowel, diph, silence | |
-| cplace | bilabial, dental, linguolabial, palatal, velar, glottal | |
+| cplace | bilabial, dental, labiodental, alveolar, palatal, velar, glottal | |
 | ctype | plosive, fricative, nasal, lateral, trill | |
 | cvox | voiced, voiceless | |
+| casp | aspirated, unaspirated| |
 | vfrontness | front, central, back | |
 | vcloseness | close, nearclose, closemid, mid, openmid, nearopen, open | |
 | vroundness | unrounded, rounded | |
@@ -19,68 +20,68 @@
 
 ## Phonemes
 
-| Phoneme | vc | cplace | ctype | cvox | vfrontness | vcloseness | vroundness | dfrontness | dcloseness | droundness | vlength | 
+| Phoneme | vc | cplace | ctype | cvox | casp | vfrontness | vcloseness | vroundness | dfrontness | dcloseness | droundness | vlength | 
 |-|-|-|-|-|-|-|-|-|-|-|-|
-| p 	| consonant | bilabial 		| plosive 		| voiceless | | | | | | | |
-| p_h 	| consonant | bilabial 		| plosive 		| voiceless | | | | | | | |
-| m 	| consonant | bilabial 		| nasal 		| voiceless | | | | | | | |
-| m_0 	| consonant | bilabial 		| nasal 		| voiced | | | | | | | |
-| f 	| consonant | dental 		| fricative 	| voiceless | | | | | | | |
-| v 	| consonant | dental 		| fricative 	| voiceless | | | | | | | |
-| t 	| consonant | linguolabial 	| plosive 		| voiceless | | | | | | | |
-| t_h 	| consonant | linguolabial 	| plosive 		| voiceless | | | | | | | |
-| D 	| consonant | linguolabial 	| fricative 	| voiceless | | | | | | | |
-| T 	| consonant | linguolabial 	| fricative 	| voiceless | | | | | | | |
-| n 	| consonant | linguolabial 	| nasal 		| voiceless | | | | | | | |
-| n_0 	| consonant | linguolabial 	| nasal 		| voiced | | | | | | | |
-| l 	| consonant | linguolabial 	| lateral 		| voiceless | | | | | | | |
-| l_0 	| consonant | linguolabial 	| lateral 		| voiced | | | | | | | |
-| r 	| consonant | linguolabial 	| trill 		| voiceless | | | | | | | |
-| r_0 	| consonant | linguolabial 	| trill 		| voiced | | | | | | | |
-| s 	| consonant | linguolabial 	| fricative 	| voiceless | | | | | | | |
-| c 	| consonant | palatal 		| plosive 		| voiceless | | | | | | | |
-| c_h 	| consonant | palatal 		| plosive 		| voiceless | | | | | | | |
-| j 	| consonant | palatal 		| fricative 	| voiceless | | | | | | | |
-| C 	| consonant | palatal 		| fricative 	| voiceless | | | | | | | |
-| J 	| consonant | palatal 		| nasal 		| voiceless | | | | | | | |
-| J_0 	| consonant | palatal 		| nasal 		| voiced | | | | | | | |
-| k 	| consonant | velar 		| plosive 		| voiceless | | | | | | | |
-| k_h 	| consonant | velar 		| plosive 		| voiceless | | | | | | | |
-| x 	| consonant | velar 		| fricative 	| voiceless | | | | | | | |
-| G 	| consonant | velar 		| fricative 	| voiceless | | | | | | | |
-| N 	| consonant | velar 		| nasal 		| voiceless | | | | | | | |
-| N_0 	| consonant | velar 		| nasal 		| voiced | | | | | | | |
-| h 	| consonant | glottal 		| fricative 	| voiceless | | | | | | | |
-| i   	| vowel 	| | | | front | close | unrounded | | | | short |
-| i:   	| vowel 	| | | | front | close | unrounded | | | | long |
-| I   	| vowel 	| | | | front | nearclose | unrounded | | | | short |
-| I:   	| vowel 	| | | | front | nearclose | unrounded | | | | long |
-| Y   	| vowel 	| | | | front | nearclose | rounded | | | | long |
-| Y:   	| vowel 	| | | | front | nearclose | rounded | | | | long |
-| Yi   	| vowel 	| | | | front | nearclose | rounded | | | | short |
-| 9  	| vowel 	| | | | front | openmid | rounded | | | | short |
-| 9:    | vowel 	| | | | front | openmid | rounded | | | | long |
-| E   	| vowel 	| | | | central | openmid | unrounded | | | | short |
-| E:   	| vowel 	| | | | central | openmid | unrounded | | | | long |
-| u   	| vowel 	| | | | back | close | rounded | | | | short |
-| u:   	| vowel 	| | | | back | close | rounded | | | | long |
-| O   	| vowel 	| | | | back | openmid | rounded | | | | short |
-| O:   	| vowel 	| | | | back | openmid | rounded | | | | long |
-| a   	| vowel 	| | | | back | open | unrounded | | | | short |
-| a:   	| vowel 	| | | | back | open | unrounded | | | | long |
-| Oi 	| diph | | | | back | openmid | rounded | front | close | unrounded | long |
-| ou 	| diph | | | | back | openmid | rounded | back | close | rounded | short |
-| ou: 	| diph | | | | back | openmid | rounded | back | close | rounded | long |
-| ai 	| diph | | | | back | open | unrounded | front | close | unrounded | short |
-| ai: 	| diph | | | | back | open | unrounded | front | close | unrounded | long |
-| au 	| diph | | | | back | open | unrounded | back | close | rounded | short |
-| au: 	| diph | | | | back | open | unrounded | back | close | rounded | long |
-| 9i 	| diph | | | | back | open | unrounded | front | nearclose | rounded | short |
-| 9i: 	| diph | | | | back | open | unrounded | front | nearclose | rounded | long |
-| ei 	| diph | | | | central | openmid | unrounded | front | close | unrounded | short |
-| ei: 	| diph | | | | central | openmid | unrounded | front | close | unrounded | long |
-| sil 	| silence | | | | | | | | | | |
-| pau 	| silence | | | | | | | | | | |
+| p 	| consonant | bilabial 		| plosive 		| voiceless | unaspirated | | | | | | | |
+| p_h 	| consonant | bilabial 		| plosive 		| voiceless | aspirated| | | | | | | |
+| m 	| consonant | bilabial 		| nasal 		| voiceless | | | | | | | | |
+| m_0 	| consonant | bilabial 		| nasal 		| voiced | | | | | | | | |
+| f 	| consonant | dental 		| fricative 	| voiceless | | | | | | | | |
+| v 	| consonant | dental 		| fricative 	| voiceless | | | | | | | | |
+| t 	| consonant | alveolar 	| plosive 		| voiceless | unaspirated | | | | | | | |
+| t_h 	| consonant | alveolar 	| plosive 		| voiceless | aspirated | | | | | | | |
+| D 	| consonant | labiodental 	| fricative 	| voiceless | | | | | | | | |
+| T 	| consonant | labiodental 	| fricative 	| voiceless | | | | | | | | |
+| n 	| consonant | alveolar 	| nasal 		| voiceless | | | | | | | | |
+| n_0 	| consonant | alveolar 	| nasal 		| voiced | | | | | | | | |
+| l 	| consonant | alveolar 	| lateral 		| voiceless | | | | | | | | |
+| l_0 	| consonant | alveolar 	| lateral 		| voiced | | | | | | | | |
+| r 	| consonant | alveolar 	| trill 		| voiceless | | | | | | | | |
+| r_0 	| consonant | alveolar 	| trill 		| voiced | | | | | | | | |
+| s 	| consonant | alveolar 	| fricative 	| voiceless | | | | | | | | |
+| c 	| consonant | palatal 		| plosive 		| voiceless | unaspirated| | | | | | | |
+| c_h 	| consonant | palatal 		| plosive 		| voiceless | aspirated | | | | | | | |
+| j 	| consonant | palatal 		| fricative 	| voiceless | | | | | | | | |
+| C 	| consonant | palatal 		| fricative 	| voiceless | | | | | | | | |
+| J 	| consonant | palatal 		| nasal 		| voiceless | | | | | | | | |
+| J_0 	| consonant | palatal 		| nasal 		| voiced | | | | | | | | |
+| k 	| consonant | velar 		| plosive 		| voiceless | unaspirated | | | | | | | |
+| k_h 	| consonant | velar 		| plosive 		| voiceless | aspirated| | | | | | | |
+| x 	| consonant | velar 		| fricative 	| voiceless | | | | | | | | |
+| G 	| consonant | velar 		| fricative 	| voiceless | | | | | | | | |
+| N 	| consonant | velar 		| nasal 		| voiceless | | | | | | | | |
+| N_0 	| consonant | velar 		| nasal 		| voiced | | | | | | | | |
+| h 	| consonant | glottal 		| fricative 	| voiceless | | | | | | | | |
+| i   	| vowel 	| | | | | front | close | unrounded | | | | short |
+| i:   	| vowel 	| | | | | front | close | unrounded | | | | long |
+| I   	| vowel 	| | | | | front | nearclose | unrounded | | | | short |
+| I:   	| vowel 	| | | | | front | nearclose | unrounded | | | | long |
+| Y   	| vowel 	| | | | | front | nearclose | rounded | | | | long |
+| Y:   	| vowel 	| | | | | front | nearclose | rounded | | | | long |
+| Yi   	| vowel 	| | | | | front | nearclose | rounded | | | | short |
+| 9  	| vowel 	| | | | | front | openmid | rounded | | | | short |
+| 9:    | vowel 	| | | | | front | openmid | rounded | | | | long |
+| E   	| vowel 	| | | | | central | openmid | unrounded | | | | short |
+| E:   	| vowel 	| | | | | central | openmid | unrounded | | | | long |
+| u   	| vowel 	| | | | | back | close | rounded | | | | short |
+| u:   	| vowel 	| | | | | back | close | rounded | | | | long |
+| O   	| vowel 	| | | | | back | openmid | rounded | | | | short |
+| O:   	| vowel 	| | | | | back | openmid | rounded | | | | long |
+| a   	| vowel 	| | | | | back | open | unrounded | | | | short |
+| a:   	| vowel 	| | | | | back | open | unrounded | | | | long |
+| Oi 	| diph | | | | | back | openmid | rounded | front | close | unrounded | long |
+| ou 	| diph | | | | | back | openmid | rounded | back | close | rounded | short |
+| ou: 	| diph | | | | | back | openmid | rounded | back | close | rounded | long |
+| ai 	| diph | | | | | back | open | unrounded | front | close | unrounded | short |
+| ai: 	| diph | | | | | back | open | unrounded | front | close | unrounded | long |
+| au 	| diph | | | | | back | open | unrounded | back | close | rounded | short |
+| au: 	| diph | | | | | back | open | unrounded | back | close | rounded | long |
+| 9i 	| diph | | | | | back | open | unrounded | front | nearclose | rounded | short |
+| 9i: 	| diph | | | | | back | open | unrounded | front | nearclose | rounded | long |
+| ei 	| diph | | | | | central | openmid | unrounded | front | close | unrounded | short |
+| ei: 	| diph | | | | | central | openmid | unrounded | front | close | unrounded | long |
+| sil 	| silence | | | | | | | | | | | |
+| pau 	| silence | | | | | | | | | | | |
 
 # Mapping IPA to ASCII/x-SAMPA
 
@@ -155,8 +156,9 @@ Since most lexicons and g2p models use non-ASCII characters we need to be able t
 | Icelandic | English |
 |-|-|
 | tvívaramælt		| bi­labial	|
-| tannvaramælt		| dental	|
-| tannbergsmælt		| linguo­labial	|
+| tannvaramælt		| labiodental	|
+| tannmælt | dental |
+| tannbergsmælt		| alveolar	|
 | framgómmælt		| palatal	|
 | uppgómmælt		| velar		|
 | raddbandahljóð	| glottal	|
