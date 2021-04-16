@@ -1,3 +1,4 @@
+source path.sh
 # Make some dirs we need
 $FESTVOXDIR/src/general/make_dirs
 

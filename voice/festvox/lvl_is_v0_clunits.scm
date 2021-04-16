@@ -245,10 +245,11 @@ Define voice for is."
   (lvl_is_v0::select_tagger)
 
   (lvl_is_v0::select_lexicon)
-  ;; For clunits selection you probably don't want vowel reduction
-  ;; the unit selection will do that
-  (if (string-equal "americanenglish" (Param.get 'Language))
-      (set! postlex_vowel_reduce_cart_tree nil))
+  ;;; For clunits selection you probably don't want vowel reduction
+  ;;; the unit selection will do that
+  ;(if (string-equal "americanenglish" (Param.get 'Language))
+  ;    (set! postlex_vowel_reduce_cart_tree nil))
+  
 
   (lvl_is_v0::select_phrasing)
 

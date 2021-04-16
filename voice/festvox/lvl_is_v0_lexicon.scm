@@ -45,7 +45,8 @@
 )
 
 (set! str_phone_map
-  (load "festvox/lvl_is_v0_sampa.scm" t)
+  'lvl_is_v0_sampa
+;  (load (p "festvox/lvl_is_v0_sampa.scm") t)
 )
 
 (define (str_to_phoneme ord)
@@ -65,7 +66,8 @@ This is very inefficient since the method is called for every word separately."
     )
   )
   (set! pp (load "ttmp.scm" t))
-  (string-after (car pp) "\t")
+  ;(string-after (car pp) "\t")
+  (cdr pp)
 )
 
 (define (string-split str delim)
@@ -93,11 +95,12 @@ return a list of the phoneme symbols"
 (define (g2p word features)
   "g2p
 Call g2p.py for unknown words."
-    (set! str_phone_list (g2ppy word))
-    (set! 
-      phones 
-      (strs_to_phoneme str_phone_list)
-    )
+    (set! phones (g2ppy word))
+;    (set! str_phone_list (g2ppy word))
+;    (set! 
+;      phones 
+;      (strs_to_phoneme str_phone_list)
+;    )
     (list word features (list (list phones 1)))
 )
 
