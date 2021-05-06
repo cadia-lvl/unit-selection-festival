@@ -1,5 +1,4 @@
 FROM python:3.7-stretch
-MAINTAINER Þorsteinn Daði Gunnarsson <thorsteinng@ru.is>
 
 RUN apt-get update && apt-get install -y \
       automake \
@@ -50,6 +49,8 @@ ENV ESTDIR /usr/local/src/speech_tools
 ENV FESTVOXDIR /usr/local/src/festvox
 ENV SPTKDIR /usr/local
 
+ADD ./ext /usr/local/src/ext
+
 # Build the Edinburgh Speech Tools
 WORKDIR /usr/local/src/speech_tools
 RUN ./configure && make
@@ -60,6 +61,7 @@ RUN ./configure && make
 
 # Build Festvox
 WORKDIR /usr/local/src/festvox
+RUN cp /usr/local/src/ext/ehmm_patch/do_ehmm ./src/ehmm/scripts/
 RUN ./configure && make
 
 RUN pip3 install numpy \

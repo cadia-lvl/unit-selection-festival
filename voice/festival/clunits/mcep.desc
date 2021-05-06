@@ -1,0 +1,185 @@
+(
+( occurid vector )
+( R:mcep_link.parent.name 
+9_1 9_2 9_3 9:_1 9:_2 9:_3 9i_1 9i_2 9i_3 9i:_1 9i:_2 9i:_3 C_1 C_2 C_3 D_1 D_2 D_3 E_1 E_2 E_3 E:_1 E:_2 E:_3 G_1 G_2 G_3 I_1 I_2 I_3 I:_1 I:_2 I:_3 J_1 J_2 J_3 J_0_1 J_0_2 J_0_3 N_1 N_2 N_3 N_0_1 N_0_2 N_0_3 O_1 O_2 O_3 O:_1 O:_2 O:_3 Oi_1 Oi_2 Oi_3 T_1 T_2 T_3 Y_1 Y_2 Y_3 Y:_1 Y:_2 Y:_3 Yi_1 Yi_2 Yi_3 a_1 a_2 a_3 a:_1 a:_2 a:_3 ai_1 ai_2 ai_3 ai:_1 ai:_2 ai:_3 au_1 au_2 au_3 au:_1 au:_2 au:_3 c_1 c_2 c_3 c_h_1 c_h_2 c_h_3 ei_1 ei_2 ei_3 ei:_1 ei:_2 ei:_3 f_1 f_2 f_3 h_1 h_2 h_3 i_1 i_2 i_3 i:_1 i:_2 i:_3 j_1 j_2 j_3 k_1 k_2 k_3 k_h_1 k_h_2 k_h_3 l_1 l_2 l_3 l_0_1 l_0_2 l_0_3 m_1 m_2 m_3 m_0_1 m_0_2 m_0_3 n_1 n_2 n_3 n_0_1 n_0_2 n_0_3 ou_1 ou_2 ou_3 ou:_1 ou:_2 ou:_3 p_1 p_2 p_3 p_h_1 p_h_2 p_h_3 pau_1 pau_2 pau_3 r_1 r_2 r_3 r_0_1 r_0_2 r_0_3 s_1 s_2 s_3 pau_5 t_1 t_2 t_3 t_h_1 t_h_2 t_h_3 u_1 u_2 u_3 u:_1 u:_2 u:_3 v_1 v_2 v_3 x_1 x_2 x_3 
+"0"
+)
+( R:mcep_link.parent.R:HMMstate.p.name
+9_1 9_2 9_3 9:_1 9:_2 9:_3 9i_1 9i_2 9i_3 9i:_1 9i:_2 9i:_3 C_1 C_2 C_3 D_1 D_2 D_3 E_1 E_2 E_3 E:_1 E:_2 E:_3 G_1 G_2 G_3 I_1 I_2 I_3 I:_1 I:_2 I:_3 J_1 J_2 J_3 J_0_1 J_0_2 J_0_3 N_1 N_2 N_3 N_0_1 N_0_2 N_0_3 O_1 O_2 O_3 O:_1 O:_2 O:_3 Oi_1 Oi_2 Oi_3 T_1 T_2 T_3 Y_1 Y_2 Y_3 Y:_1 Y:_2 Y:_3 Yi_1 Yi_2 Yi_3 a_1 a_2 a_3 a:_1 a:_2 a:_3 ai_1 ai_2 ai_3 ai:_1 ai:_2 ai:_3 au_1 au_2 au_3 au:_1 au:_2 au:_3 c_1 c_2 c_3 c_h_1 c_h_2 c_h_3 ei_1 ei_2 ei_3 ei:_1 ei:_2 ei:_3 f_1 f_2 f_3 h_1 h_2 h_3 i_1 i_2 i_3 i:_1 i:_2 i:_3 j_1 j_2 j_3 k_1 k_2 k_3 k_h_1 k_h_2 k_h_3 l_1 l_2 l_3 l_0_1 l_0_2 l_0_3 m_1 m_2 m_3 m_0_1 m_0_2 m_0_3 n_1 n_2 n_3 n_0_1 n_0_2 n_0_3 ou_1 ou_2 ou_3 ou:_1 ou:_2 ou:_3 p_1 p_2 p_3 p_h_1 p_h_2 p_h_3 pau_1 pau_2 pau_3 r_1 r_2 r_3 r_0_1 r_0_2 r_0_3 s_1 s_2 s_3 pau_5 t_1 t_2 t_3 t_h_1 t_h_2 t_h_3 u_1 u_2 u_3 u:_1 u:_2 u:_3 v_1 v_2 v_3 x_1 x_2 x_3 
+"0"
+)
+( R:mcep_link.parent.R:HMMstate.n.name
+9_1 9_2 9_3 9:_1 9:_2 9:_3 9i_1 9i_2 9i_3 9i:_1 9i:_2 9i:_3 C_1 C_2 C_3 D_1 D_2 D_3 E_1 E_2 E_3 E:_1 E:_2 E:_3 G_1 G_2 G_3 I_1 I_2 I_3 I:_1 I:_2 I:_3 J_1 J_2 J_3 J_0_1 J_0_2 J_0_3 N_1 N_2 N_3 N_0_1 N_0_2 N_0_3 O_1 O_2 O_3 O:_1 O:_2 O:_3 Oi_1 Oi_2 Oi_3 T_1 T_2 T_3 Y_1 Y_2 Y_3 Y:_1 Y:_2 Y:_3 Yi_1 Yi_2 Yi_3 a_1 a_2 a_3 a:_1 a:_2 a:_3 ai_1 ai_2 ai_3 ai:_1 ai:_2 ai:_3 au_1 au_2 au_3 au:_1 au:_2 au:_3 c_1 c_2 c_3 c_h_1 c_h_2 c_h_3 ei_1 ei_2 ei_3 ei:_1 ei:_2 ei:_3 f_1 f_2 f_3 h_1 h_2 h_3 i_1 i_2 i_3 i:_1 i:_2 i:_3 j_1 j_2 j_3 k_1 k_2 k_3 k_h_1 k_h_2 k_h_3 l_1 l_2 l_3 l_0_1 l_0_2 l_0_3 m_1 m_2 m_3 m_0_1 m_0_2 m_0_3 n_1 n_2 n_3 n_0_1 n_0_2 n_0_3 ou_1 ou_2 ou_3 ou:_1 ou:_2 ou:_3 p_1 p_2 p_3 p_h_1 p_h_2 p_h_3 pau_1 pau_2 pau_3 r_1 r_2 r_3 r_0_1 r_0_2 r_0_3 s_1 s_2 s_3 pau_5 t_1 t_2 t_3 t_h_1 t_h_2 t_h_3 u_1 u_2 u_3 u:_1 u:_2 u:_3 v_1 v_2 v_3 x_1 x_2 x_3 
+"0"
+)
+( R:mcep_link.parent.R:segstate.parent.p.name
+9 9: 9i 9i: C D E E: G I I: J J_0 N N_0 O O: Oi T Y Y: Yi a a: ai ai: au au: c c_h ei ei: f h i i: j k k_h l l_0 m m_0 n n_0 ou ou: p p_h pau r r_0 s ssil t t_h u u: v x 
+"0"
+)
+( R:mcep_link.parent.R:segstate.parent.p.ph_vc consonant vowel diph silence 0 )
+( R:mcep_link.parent.R:segstate.parent.p.ph_ctype plosive fricative nasal lateral trill 0 )
+( R:mcep_link.parent.R:segstate.parent.p.ph_vlength long short 0 )
+( R:mcep_link.parent.R:segstate.parent.p.ph_vcloseness close nearclose closemid mid openmid nearopen open 0 )
+( R:mcep_link.parent.R:segstate.parent.p.ph_vfrontness front central back 0 )
+( R:mcep_link.parent.R:segstate.parent.p.ph_vroundness unrounded rounded 0 )
+( R:mcep_link.parent.R:segstate.parent.p.ph_dcloseness2 close nearclose closemid mid openmid nearopen open 0 )
+( R:mcep_link.parent.R:segstate.parent.p.ph_dfrontness2 front central back 0 )
+( R:mcep_link.parent.R:segstate.parent.p.ph_droundness2 unrounded rounded 0 )
+( R:mcep_link.parent.R:segstate.parent.p.ph_cplace bilabial labiodental dental alveolar palatal velar glottal 0 )
+( R:mcep_link.parent.R:segstate.parent.p.ph_cvox voiced voiceless 0 )
+( R:mcep_link.parent.R:segstate.parent.p.ph_casp aspirated unaspirated 0 )
+( R:mcep_link.parent.R:segstate.parent.n.name ignore
+9 9: 9i 9i: C D E E: G I I: J J_0 N N_0 O O: Oi T Y Y: Yi a a: ai ai: au au: c c_h ei ei: f h i i: j k k_h l l_0 m m_0 n n_0 ou ou: p p_h pau r r_0 s ssil t t_h u u: v x 
+"0"
+)
+( R:mcep_link.parent.R:segstate.parent.n.ph_vc consonant vowel diph silence 0 )
+( R:mcep_link.parent.R:segstate.parent.n.ph_ctype plosive fricative nasal lateral trill 0 )
+( R:mcep_link.parent.R:segstate.parent.n.ph_vlength long short 0 )
+( R:mcep_link.parent.R:segstate.parent.n.ph_vcloseness close nearclose closemid mid openmid nearopen open 0 )
+( R:mcep_link.parent.R:segstate.parent.n.ph_vfrontness front central back 0 )
+( R:mcep_link.parent.R:segstate.parent.n.ph_vroundness unrounded rounded 0 )
+( R:mcep_link.parent.R:segstate.parent.n.ph_dcloseness2 close nearclose closemid mid openmid nearopen open 0 )
+( R:mcep_link.parent.R:segstate.parent.n.ph_dfrontness2 front central back 0 )
+( R:mcep_link.parent.R:segstate.parent.n.ph_droundness2 unrounded rounded 0 )
+( R:mcep_link.parent.R:segstate.parent.n.ph_cplace bilabial labiodental dental alveolar palatal velar glottal 0 )
+( R:mcep_link.parent.R:segstate.parent.n.ph_cvox voiced voiceless 0 )
+( R:mcep_link.parent.R:segstate.parent.n.ph_casp aspirated unaspirated 0 )
+
+( R:mcep_link.parent.R:segstate.parent.segment_duration ignore float)
+( R:mcep_link.parent.lisp_cg_duration float)
+( R:mcep_link.parent.R:segstate.n.lisp_cg_duration float)
+( R:mcep_link.parent.R:segstate.p.lisp_cg_duration float)
+( lisp_cg_state_pos b m e)
+( lisp_cg_state_place float)
+( lisp_cg_state_index float)
+( lisp_cg_state_rindex float)
+( lisp_cg_phone_place float)
+( lisp_cg_phone_index float)
+( lisp_cg_phone_rindex float)
+( lisp_cg_position_in_sentence ignore float)
+( R:mcep_link.parent.R:segstate.parent.R:SylStructure.parent.parent.R:Phrase.parent.lisp_cg_find_phrase_number float)
+( lisp_cg_position_in_phrasep float)
+( lisp_cg_position_in_phrase float)
+( R:mcep_link.parent.R:segstate.parent.R:SylStructure.parent.stress float)
+( R:mcep_link.parent.R:segstate.parent.R:SylStructure.parent.R:Syllable.p.stress
+float
+)
+( R:mcep_link.parent.R:segstate.parent.R:SylStructure.parent.R:Syllable.n.stress
+float
+)
+( R:mcep_link.parent.R:segstate.parent.seg_onsetcoda
+0
+coda
+onset
+)
+( R:mcep_link.parent.R:segstate.parent.n.seg_onsetcoda 
+0
+coda
+onset
+)
+( R:mcep_link.parent.R:segstate.parent.p.seg_onsetcoda
+0
+coda
+onset
+)
+( R:mcep_link.parent.R:segstate.parent.R:SylStructure.parent.accented
+0
+1
+)
+( R:mcep_link.parent.R:segstate.parent.pos_in_syl float)
+( R:mcep_link.parent.R:segstate.parent.syl_initial 
+0
+1
+)
+( R:mcep_link.parent.R:segstate.parent.syl_final
+0
+1
+)
+( R:mcep_link.parent.R:segstate.parent.R:SylStructure.parent.lisp_cg_break
+0
+1
+3
+4
+)
+( R:mcep_link.parent.R:segstate.parent.R:SylStructure.parent.R:Syllable.p.lisp_cg_break
+0
+1
+3
+4
+)
+( R:mcep_link.parent.R:segstate.parent.R:SylStructure.parent.position_type
+0
+initial
+single
+final
+mid
+)
+( R:mcep_link.parent.R:segstate.parent.pp.name ignore
+9 9: 9i 9i: C D E E: G I I: J J_0 N N_0 O O: Oi T Y Y: Yi a a: ai ai: au au: c c_h ei ei: f h i i: j k k_h l l_0 m m_0 n n_0 ou ou: p p_h pau r r_0 s ssil t t_h u u: v x 
+"0"
+)
+( R:mcep_link.parent.R:segstate.parent.pp.ph_vc ignore consonant vowel diph silence 0 )
+( R:mcep_link.parent.R:segstate.parent.pp.ph_ctype ignore plosive fricative nasal lateral trill 0 )
+( R:mcep_link.parent.R:segstate.parent.pp.ph_vlength ignore long short 0 )
+( R:mcep_link.parent.R:segstate.parent.pp.ph_vcloseness ignore close nearclose closemid mid openmid nearopen open 0 )
+( R:mcep_link.parent.R:segstate.parent.pp.ph_vfrontness ignore front central back 0 )
+( R:mcep_link.parent.R:segstate.parent.pp.ph_vroundness ignore unrounded rounded 0 )
+( R:mcep_link.parent.R:segstate.parent.pp.ph_dcloseness2 ignore close nearclose closemid mid openmid nearopen open 0 )
+( R:mcep_link.parent.R:segstate.parent.pp.ph_dfrontness2 ignore front central back 0 )
+( R:mcep_link.parent.R:segstate.parent.pp.ph_droundness2 ignore unrounded rounded 0 )
+( R:mcep_link.parent.R:segstate.parent.pp.ph_cplace ignore bilabial labiodental dental alveolar palatal velar glottal 0 )
+( R:mcep_link.parent.R:segstate.parent.pp.ph_cvox ignore voiced voiceless 0 )
+( R:mcep_link.parent.R:segstate.parent.pp.ph_casp ignore aspirated unaspirated 0 )
+
+( R:mcep_link.parent.R:segstate.parent.n.lisp_is_pau 0 1)
+( R:mcep_link.parent.R:segstate.parent.p.lisp_is_pau 0 1)
+( R:mcep_link.parent.R:segstate.parent.R:SylStructure.parent.parent.gpos
+0
+aux
+cc
+content
+det
+in
+md
+pps
+to
+wp
+punc
+tag001 tag002 tag003 tag004 tag005 tag006 tag007 tag008 tag009 tag010
+tag011 tag012 tag013 tag014 tag015 tag016 tag017 tag018 tag019 tag020
+tag021 tag022 tag023 tag024 tag025 tag026 tag027 tag028 tag029 tag030
+)
+( R:mcep_link.parent.R:segstate.parent.R:SylStructure.parent.parent.R:Word.p.gpos
+0
+aux
+cc
+content
+det
+in
+md
+pps
+to
+wp
+punc
+tag001 tag002 tag003 tag004 tag005 tag006 tag007 tag008 tag009 tag010
+tag011 tag012 tag013 tag014 tag015 tag016 tag017 tag018 tag019 tag020
+tag021 tag022 tag023 tag024 tag025 tag026 tag027 tag028 tag029 tag030
+)
+( R:mcep_link.parent.R:segstate.parent.R:SylStructure.parent.parent.R:Word.n.gpos
+0
+aux
+cc
+content
+det
+in
+md
+pps
+to
+wp
+punc
+tag001 tag002 tag003 tag004 tag005 tag006 tag007 tag008 tag009 tag010
+tag011 tag012 tag013 tag014 tag015 tag016 tag017 tag018 tag019 tag020
+tag021 tag022 tag023 tag024 tag025 tag026 tag027 tag028 tag029 tag030
+
+)
+)
