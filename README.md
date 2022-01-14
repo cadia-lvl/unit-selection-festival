@@ -30,7 +30,7 @@ To train and run a voice model you will need to install:
 # Training
 
 Training a voice requires a voice corpus, a [fairseq](https://github.com/grammatek/g2p-lstm) grapheme to phoneme model and an optional lexicon.
-This documentaion assumes you are using the Talromur corpus and you have the data and a g2p model available in a directory called ext/.
+This documentaion assumes you are using the [Talromur corpus](https://repository.clarin.is/repository/xmlui/handle/20.500.12537/104) and you have the data and a g2p model available in a directory called ext/.
 
 `ext/` directory format:
 ```
